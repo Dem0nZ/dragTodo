@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 function App() {
+  const [task, setTask] = useState('');
+  console.log(task);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem('tasks')) || []
+  );
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  },[tasks]);
+  
+  const newTask = () => {
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className='wrapper'>
+        <input
+          type='text'
+          placeholder='Add new task'
+          onChange={(e) => setTask(e.target.value)}
+        />
+        <button
+          className='enter'
+          onClick={newTask}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Enter
+        </button>
+      </div>
   );
 }
 
