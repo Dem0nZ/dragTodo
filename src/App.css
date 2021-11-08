@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     background-color: #222;
 }
-input {
+.input {
     height: 30px;
     width: 250px;
     border: none;
@@ -15,6 +15,12 @@ input {
     color: white;
     padding: 0 10px;
     outline: none;
+}
+.error {
+    border-bottom: 1px solid red;
+}
+.error::placeholder {
+    color: red;
 }
 .enter {
     width: 100px;
@@ -28,5 +34,20 @@ input {
 .enter:hover {
     background: whitesmoke;
     color: #222222;
+    cursor: pointer;
+}
+.task {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    cursor: move;
+    min-width: 220px;
+    color: black;
+    padding: 1em;
+    border-radius: 5px;
+}
+.delete {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
